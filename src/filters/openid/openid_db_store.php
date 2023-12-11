@@ -57,7 +57,7 @@ class ezcAuthenticationOpenidDbStore extends ezcAuthenticationOpenidStore
      *
      * @var array(string=>mixed)
      */
-    private $properties = array();
+    private array $properties = [];
 
     /**
      * Creates a new object of this class.
@@ -68,7 +68,7 @@ class ezcAuthenticationOpenidDbStore extends ezcAuthenticationOpenidStore
     public function __construct( ezcDbHandler $instance, ezcAuthenticationOpenidDbStoreOptions $options = null )
     {
         $this->instance = $instance;
-        $this->options = ( $options === null ) ? new ezcAuthenticationOpenidDbStoreOptions() : $options;
+        $this->options = $options ?? new ezcAuthenticationOpenidDbStoreOptions();
     }
 
     /**
@@ -82,7 +82,7 @@ class ezcAuthenticationOpenidDbStore extends ezcAuthenticationOpenidStore
      * @param mixed $value The new value of the property
      * @ignore
      */
-    public function __set( $name, $value )
+    public function __set( $name, mixed $value )
     {
         switch ( $name )
         {
@@ -111,14 +111,10 @@ class ezcAuthenticationOpenidDbStore extends ezcAuthenticationOpenidStore
      */
     public function __get( $name )
     {
-        switch ( $name )
-        {
-            case 'instance':
-                return $this->properties[$name];
-
-            default:
-                throw new ezcBasePropertyNotFoundException( $name );
-        }
+        return match ($name) {
+            'instance' => $this->properties[$name],
+            default => throw new ezcBasePropertyNotFoundException( $name ),
+        };
     }
 
     /**
@@ -130,14 +126,10 @@ class ezcAuthenticationOpenidDbStore extends ezcAuthenticationOpenidStore
      */
     public function __isset( $name )
     {
-        switch ( $name )
-        {
-            case 'instance':
-                return isset( $this->properties[$name] );
-
-            default:
-                return false;
-        }
+        return match ($name) {
+            'instance' => isset( $this->properties[$name] ),
+            default => false,
+        };
     }
 
     /**

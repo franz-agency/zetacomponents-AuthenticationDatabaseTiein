@@ -25,9 +25,5 @@
  * @package AuthenticationDatabaseTiein
  */
 
-return array(
-    'ezcAuthenticationDatabaseFilter'  => 'AuthenticationDatabaseTiein/filters/database/database_filter.php',
-    'ezcAuthenticationDatabaseInfo'    => 'AuthenticationDatabaseTiein/filters/database/database_info.php',
-    'ezcAuthenticationDatabaseOptions' => 'AuthenticationDatabaseTiein/options/database_options.php',
-);
+return ['ezcAuthenticationDatabaseFilter'  => 'AuthenticationDatabaseTiein/filters/database/database_filter.php', 'ezcAuthenticationDatabaseInfo'    => 'AuthenticationDatabaseTiein/filters/database/database_info.php', 'ezcAuthenticationDatabaseOptions' => 'AuthenticationDatabaseTiein/options/database_options.php'];
 ?>

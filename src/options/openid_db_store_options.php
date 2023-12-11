@@ -71,10 +71,10 @@ class ezcAuthenticationOpenidDbStoreOptions extends ezcAuthenticationOpenidStore
      *         if $options contains a property with a value not allowed
      * @param array(string=>mixed) $options Options for this class
      */
-    public function __construct( array $options = array() )
+    public function __construct( array $options = [] )
     {
-        $this->tableNonces = array( 'name' => 'openid_nonces', 'fields' => array( 'nonce' => 'nonce', 'timestamp' => 'timestamp' ) );
-        $this->tableAssociations = array( 'name' => 'openid_associations', 'fields' => array( 'url' => 'url', 'association' => 'association' ) );
+        $this->tableNonces = ['name' => 'openid_nonces', 'fields' => ['nonce' => 'nonce', 'timestamp' => 'timestamp']];
+        $this->tableAssociations = ['name' => 'openid_associations', 'fields' => ['url' => 'url', 'association' => 'association']];
 
         parent::__construct( $options );
     }
@@ -90,7 +90,7 @@ class ezcAuthenticationOpenidDbStoreOptions extends ezcAuthenticationOpenidStore
      * @param mixed $value The new value of the property
      * @ignore
      */
-    public function __set( $name, $value )
+    public function __set( $name, mixed $value )
     {
         switch ( $name )
         {

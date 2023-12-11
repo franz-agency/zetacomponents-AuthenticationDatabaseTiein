@@ -41,13 +41,6 @@ class ezcAuthenticationDatabaseInfo extends ezcBaseStruct
     public $instance;
 
     /**
-     * Table which stores the user credentials.
-     *
-     * @var string
-     */
-    public $table;
-
-    /**
      * Fields which hold the user credentials.
      *
      * @var array(string)
@@ -61,10 +54,13 @@ class ezcAuthenticationDatabaseInfo extends ezcBaseStruct
      * @param string $table Table which stores usernames and passwords
      * @param array(string) $fields The fields which hold usernames and passwords
      */
-    public function __construct( ezcDbHandler $instance, $table, array $fields )
+    public function __construct( ezcDbHandler $instance, /**
+     * Table which stores the user credentials.
+     *
+     */
+    public $table, array $fields )
     {
         $this->instance = $instance;
-        $this->table = $table;
         $this->fields = $fields;
     }
 
